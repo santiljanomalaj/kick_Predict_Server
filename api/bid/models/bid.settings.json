@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bids",
+  "info": {
+    "name": "bid"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "bids"
+    },
+    "sneaker": {
+      "via": "bids",
+      "model": "sneaker"
+    },
+    "settlement_price": {
+      "type": "decimal",
+      "required": true
+    },
+    "settlement_date": {
+      "type": "datetime",
+      "required": true
+    },
+    "bid": {
+      "type": "enumeration",
+      "enum": [
+        "over",
+        "under"
+      ],
+      "required": true
+    },
+    "amount": {
+      "type": "integer",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "unmatched",
+        "matched",
+        "won",
+        "lost",
+        "cancelled"
+      ],
+      "required": true,
+      "default": "unmatched"
+    },
+    "match": {
+      "model": "bid"
+    },
+    "payment": {
+      "model": "payment",
+      "via": "bid"
+    },
+    "systemGenerated": {
+      "type": "boolean",
+      "default": false
+    },
+    "manuallyMatched": {
+      "type": "boolean"
+    }
+  }
+}

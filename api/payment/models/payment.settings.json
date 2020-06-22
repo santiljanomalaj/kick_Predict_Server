@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payments",
+  "info": {
+    "name": "payment"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "amount": {
+      "type": "decimal"
+    },
+    "details": {
+      "type": "json"
+    },
+    "bid": {
+      "via": "payment",
+      "model": "bid"
+    },
+    "sneaker": {
+      "via": "payments",
+      "model": "sneaker"
+    }
+  }
+}

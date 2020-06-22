@@ -1,0 +1,99 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sneakers",
+  "info": {
+    "name": "sneaker"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "four",
+        "four_and_a_half",
+        "five",
+        "five_and_a_half",
+        "six",
+        "six_and_a_half",
+        "seven",
+        "seven_and_a_half",
+        "eight",
+        "eight_and_a_half",
+        "nine",
+        "nine_and_a_half",
+        "ten",
+        "ten_and_a_half",
+        "eleven",
+        "eleven_and_a_half",
+        "twelve",
+        "twelve_and_a_half",
+        "thirteen",
+        "thirteen_and_a_half",
+        "fourteen",
+        "fourteen_and_a_half",
+        "fiveteen",
+        "sixteen",
+        "seventeen"
+      ]
+    },
+    "last_sale_price": {
+      "type": "decimal"
+    },
+    "url": {
+      "type": "string"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "screenshot": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "bids": {
+      "collection": "bid",
+      "via": "sneaker"
+    },
+    "settlement_price": {
+      "type": "decimal"
+    },
+    "settlement_date": {
+      "type": "datetime"
+    },
+    "live": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "payments": {
+      "collection": "payment",
+      "via": "sneaker"
+    },
+    "final_price": {
+      "type": "decimal"
+    },
+    "hours_offset_to_disable_bidding": {
+      "type": "integer"
+    }
+  }
+}
